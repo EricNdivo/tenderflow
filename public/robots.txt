@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://tenderflow.com/sitemap.xml
