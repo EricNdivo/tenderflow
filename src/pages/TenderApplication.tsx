@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../components/ui/Header'
+import Footer from '../components/ui/Footer'
 
 const TenderApplication = () => {
   const [selectedFinancing, setSelectedFinancing] = useState('')
@@ -496,6 +497,7 @@ const TenderApplication = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   )
 }

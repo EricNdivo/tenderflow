@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Eye, EyeOff, Zap, Mail, Lock, User, Building, Phone } from 'lucide-react'
 import Header from '../components/ui/Header'
+import Footer from '../components/ui/Footer'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -233,6 +234,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

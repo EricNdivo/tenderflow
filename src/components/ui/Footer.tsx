@@ -19,7 +19,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-2xl font-bold">
-                  Tender<span className="text-accent">Flow</span>
+                  Tender<span className="text-emerald-400">Flow</span>
                 </span>
                 <span className="text-sm text-gray-400 font-medium">Comprehensive Financing Solutions</span>
               </div>
@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-medium">24/7 Support Hotline</p>
-                  <p className="text-gray-400 text-sm">+1 (555) 123-4567</p>
+                  <p className="text-gray-400 text-sm">+254-123-4567</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -181,7 +181,7 @@ const Footer = () => {
                 <span>Live Platform</span>
               </span>
               <span>•</span>
-              <span>$250M+ Deployed</span>
+              <span>250M+ Deployed</span>
               <span>•</span>
               <span>2,800+ Projects</span>
             </div>

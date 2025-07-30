@@ -49,14 +49,6 @@ const Header = () => {
               <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
             
-            <Link 
-              to="/dashboard" 
-              className="text-slate-700 hover:text-emerald-600 transition-all duration-300 font-medium relative group"
-            >
-              Dashboard
-              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-            </Link>
-            
             <div className="relative group">
               <span className="text-slate-700 hover:text-emerald-600 transition-all duration-300 font-medium cursor-pointer relative flex items-center">
                 Services
@@ -117,12 +109,12 @@ const Header = () => {
               to="#" 
               className="text-slate-700 hover:text-emerald-600 transition-all duration-300 font-medium relative group"
             >
-              About
+              About Us
               <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
             
             <Link 
-              to="#" 
+              to="/contact" 
               className="text-slate-700 hover:text-emerald-600 transition-all duration-300 font-medium relative group"
             >
               Contact
@@ -130,8 +122,19 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* Auth Buttons */}
+          {/* Auth Buttons and Dashboard */}
           <div className="flex items-center space-x-4">
+            {/* Special Dashboard Button */}
+            <Link
+              to="/dashboard"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 font-medium shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-0.5 flex items-center space-x-2 group"
+            >
+              <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2 2z" />
+              </svg>
+              <span>Dashboard</span>
+            </Link>
+
             <button
               onClick={openLoginModal}
               className="text-slate-700 hover:text-emerald-600 transition-all duration-300 font-medium relative group"

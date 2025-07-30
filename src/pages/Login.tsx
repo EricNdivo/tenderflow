@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Eye, EyeOff, Zap, Mail, Lock } from 'lucide-react'
 import Header from '../components/ui/Header'
+import Footer from '../components/ui/Footer'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -152,6 +153,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }
