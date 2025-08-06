@@ -7,7 +7,7 @@ const Features = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 text-emerald-800 text-sm font-medium mb-6">
-            Why Choose TenderFlow
+            Why Choose Tender Plus
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Built for <span className="text-emerald-600">Modern Businesses</span>
@@ -91,7 +91,7 @@ const Features = () => {
           <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl p-12 text-white">
             <h3 className="text-3xl font-bold mb-4">Ready to Scale Your Business?</h3>
             <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-              Join the growing community of businesses that trust TenderFlow for their financing needs.
+              Join the growing community of businesses that trust Tender Plus for their financing needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-emerald-50 transition-colors duration-300 shadow-lg">

@@ -44,7 +44,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: "info@tenderflow.co.ke\nsupport@tenderflow.co.ke",
+      details: "info@tenderplus.co.ke\nsupport@tenderplus.co.ke",
       color: "from-purple-500 to-purple-600",
       bgHover: "hover:bg-purple-50"
     },
@@ -90,7 +90,7 @@ const Contact = () => {
           <div className="absolute inset-0 opacity-40">
             <img 
               src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noXarOlbFmsGPnpfMGQW-hYDGHzqZN-98VR9bqosttkoRh6Xis1BC7i3rSJXLggtOnLpZr7WnwxI1q1GpiBQRfWX4w5l4VdG-4t3AQA1QxkwRQ8zXCO2HHrGCxh4dH94CMudpU=s680-w680-h510-rw"
-              alt="TenderFlow Office"
+              alt="Tender Plus Office"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/60 via-teal-600/60 to-blue-600/60"></div>
@@ -297,7 +297,7 @@ const Contact = () => {
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
                   <img 
                     src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noXarOlbFmsGPnpfMGQW-hYDGHzqZN-98VR9bqosttkoRh6Xis1BC7i3rSJXLggtOnLpZr7WnwxI1q1GpiBQRfWX4w5l4VdG-4t3AQA1QxkwRQ8zXCO2HHrGCxh4dH94CMudpU=s680-w680-h510-rw"
-                    alt="TenderFlow Office - Karen Green Business Park"
+                    alt="Tender Plus Office - Karen Green Business Park"
                     className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -349,7 +349,7 @@ const Contact = () => {
               <div className="relative w-full h-96 bg-gradient-to-br from-green-400 via-blue-400 to-purple-400 flex items-center justify-center">
                 <img 
                   src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noXarOlbFmsGPnpfMGQW-hYDGHzqZN-98VR9bqosttkoRh6Xis1BC7i3rSJXLggtOnLpZr7WnwxI1q1GpiBQRfWX4w5l4VdG-4t3AQA1QxkwRQ8zXCO2HHrGCxh4dH94CMudpU=s680-w680-h510-rw"
-                  alt="TenderFlow Office Location"
+                  alt="Tender Plus Office Location"
                   className="w-full h-full object-cover opacity-30"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/80 to-blue-600/80 flex items-center justify-center">

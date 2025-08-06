@@ -172,7 +172,7 @@ const Footer = () => {
         <div className="border-t border-slate-700 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-center md:text-left">
-              © 2025 TenderFlow Financing Solutions. All rights reserved. 
+              © 2025 Tender Plus Financing Solutions. All rights reserved. 
               <span className="hidden md:inline"> | Licensed Financial Services Provider</span>
             </p>
             <div className="flex items-center space-x-4 text-sm text-gray-500">

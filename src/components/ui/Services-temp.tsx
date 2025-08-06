@@ -165,7 +165,7 @@ const Services: React.FC<ServicesProps> = ({
           <div className="bg-gradient-to-r from-emerald-500 via-indigo-500 to-purple-500 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Win More Tenders?</h3>
             <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              Join hundreds of businesses that trust TenderFlow for complete tender solutions - from documentation to financing.
+              Join hundreds of businesses that trust Tender Plus for complete tender solutions - from documentation to financing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-xl hover:bg-gray-50 transition-colors">

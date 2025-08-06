@@ -110,7 +110,7 @@ const SourceSupplyApplication: React.FC = () => {
               Application Submitted Successfully!
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Thank you for choosing TenderFlow for your sourcing and supply needs. Our procurement specialists will review your requirements and contact you within 24 hours.
+              Thank you for choosing Tender Plus for your sourcing and supply needs. Our procurement specialists will review your requirements and contact you within 24 hours.
             </p>
             <div className="bg-orange-50 rounded-2xl p-6 mb-8">
               <h3 className="text-lg font-semibold text-orange-800 mb-4">What happens next?</h3>
@@ -143,61 +143,20 @@ const SourceSupplyApplication: React.FC = () => {
   }
 
   const steps = [
-    { number: 1, title: 'Company Info', icon: Building },
-    { number: 2, title: 'Product Requirements', icon: Package },
-    { number: 3, title: 'Delivery Details', icon: Truck },
-    { number: 4, title: 'Review & Submit', icon: CheckCircle }
+    { number: 1, title: 'Business Profile', icon: Building },
+    { number: 2, title: 'Sourcing Needs', icon: Package },
+    { number: 3, title: 'Logistics & Timeline', icon: Truck },
+    { number: 4, title: 'Finalize Application', icon: CheckCircle }
   ];
 
   return (
     <div>
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 pt-16">
-        {/* Professional Hero Section */}
-        <div className="relative bg-gradient-to-br from-orange-500 via-red-600 to-pink-700 text-white">
-          <div className="absolute inset-0 bg-black/20"></div>
-          
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium mb-6">
-              <Package className="mr-2 h-4 w-4" />
-              Source to Supply Solutions
-            </div>
-            
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Professional Procurement <br />
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-200 bg-clip-text text-transparent">
-                Made Simple
-              </span>
-            </h1>
-            
-            <p className="text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Connect with verified suppliers worldwide and streamline your procurement process with our end-to-end sourcing solutions.
-            </p>
-            
-            {/* Simple CTA */}
-            <div className="inline-flex items-center justify-center space-x-4">
-              <div className="flex items-center text-white/80 text-sm">
-                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
-                Verified Suppliers
-              </div>
-              <div className="w-1 h-1 bg-white/50 rounded-full"></div>
-              <div className="flex items-center text-white/80 text-sm">
-                <Shield className="h-4 w-4 mr-2 text-green-300" />
-                Quality Assured
-              </div>
-              <div className="w-1 h-1 bg-white/50 rounded-full"></div>
-              <div className="flex items-center text-white/80 text-sm">
-                <Clock className="h-4 w-4 mr-2 text-green-300" />
-                Fast Processing
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Progress Steps */}
-        <div className="bg-white shadow-lg sticky top-0 z-40">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex items-center justify-between">
+        {/* Modern Linear Progress Steps */}
+        <div className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 shadow-2xl sticky top-0 z-40">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex items-center justify-center space-x-8">
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 const isActive = currentStep === step.number;
@@ -205,37 +164,84 @@ const SourceSupplyApplication: React.FC = () => {
                 
                 return (
                   <div key={step.number} className="flex items-center">
-                    <div className={`flex items-center ${index < steps.length - 1 ? 'flex-1' : ''}`}>
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    {/* Step Circle and Content */}
+                    <div className="flex flex-col items-center">
+                      {/* Icon Circle */}
+                      <div className={`relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 transform ${
                         isCompleted 
-                          ? 'bg-orange-500 text-white' 
+                          ? 'bg-white text-green-600 shadow-lg scale-110' 
                           : isActive 
-                            ? 'bg-orange-100 text-orange-600 border-2 border-orange-500' 
-                            : 'bg-gray-100 text-gray-400'
+                            ? 'bg-white text-orange-600 shadow-xl scale-125 ring-4 ring-white/30' 
+                            : 'bg-white/20 text-white/60 shadow-md'
                       }`}>
                         {isCompleted ? (
-                          <CheckCircle className="h-6 w-6" />
+                          <CheckCircle className="h-8 w-8" />
                         ) : (
-                          <Icon className="h-6 w-6" />
+                          <Icon className="h-8 w-8" />
                         )}
+                        
+                        {/* Step Number Badge */}
+                        <div className={`absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                          isCompleted 
+                            ? 'bg-green-500 text-white' 
+                            : isActive 
+                              ? 'bg-orange-600 text-white' 
+                              : 'bg-white/30 text-white/80'
+                        }`}>
+                          {step.number}
+                        </div>
                       </div>
-                      <div className="ml-3">
-                        <p className={`text-sm font-medium ${isActive ? 'text-orange-600' : 'text-gray-500'}`}>
-                          Step {step.number}
-                        </p>
-                        <p className={`text-xs ${isActive ? 'text-orange-600' : 'text-gray-400'}`}>
+                      
+                      {/* Step Info */}
+                      <div className="mt-4 text-center">
+                        <p className={`text-sm font-bold transition-all duration-300 ${
+                          isActive ? 'text-white' : 'text-white/80'
+                        }`}>
                           {step.title}
+                        </p>
+                        <p className={`text-xs mt-1 transition-all duration-300 ${
+                          isActive ? 'text-white/90' : 'text-white/60'
+                        }`}>
+                          Step {step.number} of 4
                         </p>
                       </div>
                     </div>
+                    
+                    {/* Connecting Line */}
                     {index < steps.length - 1 && (
-                      <div className={`flex-1 h-1 mx-6 rounded-full transition-all duration-300 ${
-                        isCompleted ? 'bg-orange-500' : 'bg-gray-200'
-                      }`}></div>
+                      <div className="flex items-center mx-6 mb-12">
+                        <div className={`h-1 w-16 rounded-full transition-all duration-500 ${
+                          isCompleted ? 'bg-white shadow-lg' : 'bg-white/30'
+                        }`}>
+                          {/* Animated progress line */}
+                          <div className={`h-full rounded-full transition-all duration-1000 ${
+                            isCompleted ? 'bg-green-400 w-full' : isActive ? 'bg-white w-1/2' : 'bg-transparent w-0'
+                          }`}></div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 );
               })}
+            </div>
+            
+            {/* Progress Bar */}
+            <div className="mt-8 max-w-2xl mx-auto">
+              <div className="bg-white/20 rounded-full h-2 shadow-inner">
+                <div 
+                  className="bg-white h-2 rounded-full transition-all duration-1000 ease-out shadow-lg"
+                  style={{ width: `${(currentStep / 4) * 100}%` }}
+                >
+                  <div className="h-full bg-gradient-to-r from-yellow-300 to-white rounded-full"></div>
+                </div>
+              </div>
+              <div className="flex justify-between mt-2 text-white/80 text-xs">
+                <span>Start</span>
+                <span className={`font-semibold ${currentStep >= 2 ? 'text-white' : ''}`}>25%</span>
+                <span className={`font-semibold ${currentStep >= 3 ? 'text-white' : ''}`}>50%</span>
+                <span className={`font-semibold ${currentStep >= 4 ? 'text-white' : ''}`}>75%</span>
+                <span className={`font-semibold ${currentStep === 4 ? 'text-white' : ''}`}>Complete</span>
+              </div>
             </div>
           </div>
         </div>
@@ -681,7 +687,7 @@ const SourceSupplyApplication: React.FC = () => {
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="h-4 w-4 mr-2 mt-1 text-orange-600" />
-                          <span>I consent to being contacted by TenderFlow representatives regarding this inquiry</span>
+                          <span>I consent to being contacted by Tender Plus representatives regarding this inquiry</span>
                         </div>
                       </div>
                     </div>

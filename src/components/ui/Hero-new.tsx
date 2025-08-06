@@ -22,7 +22,7 @@ const Hero = ({ onGetStartedClick }: HeroProps) => {
 
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-7xl font-bold leading-tight">
-                <span className="block text-white">TenderFlow</span>
+                <span className="block text-white">Tender Plus</span>
                 <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                   Tender Solutions
                 </span>

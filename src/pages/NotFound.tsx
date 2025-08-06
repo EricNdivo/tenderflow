@@ -166,7 +166,7 @@ const NotFound = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-sm text-gray-500">
-            Need help? <a href="mailto:support@tenderflow.com" className="text-indigo-600 hover:text-indigo-500">Contact Support</a>
+            Need help? <a href="mailto:support@tenderplus.com" className="text-indigo-600 hover:text-indigo-500">Contact Support</a>
           </p>
         </div>
       </div>

@@ -22,7 +22,7 @@ const Hero = ({ onGetStartedClick }: HeroProps) => {
 
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-7xl font-bold leading-tight">
-                <span className="block text-white">TenderFlow</span>
+                <span className="block text-white">Tender Plus</span>
                 <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
                   Complete Solutions
                 </span>
@@ -150,7 +150,7 @@ const Hero = ({ onGetStartedClick }: HeroProps) => {
 
             {/* Trust Indicators */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <h4 className="text-lg font-semibold mb-4 text-center">Why Choose TenderFlow?</h4>
+              <h4 className="text-lg font-semibold mb-4 text-center">Why Choose Tender Plus?</h4>
               <div className="flex items-center justify-center space-x-6 text-white/60">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-400">A+</div>

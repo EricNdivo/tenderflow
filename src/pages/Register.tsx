@@ -90,7 +90,7 @@ const Register = () => {
                   <Zap className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Join TenderFlow</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">Join Tender Plus</h2>
               <p className="text-gray-600">
                 Create your account and start your financing journey
               </p>

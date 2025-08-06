@@ -234,7 +234,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalProps) =
                   </div>
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  {mode === 'login' ? 'Welcome back!' : 'Join TenderFlow'}
+                  {mode === 'login' ? 'Welcome back!' : 'Join Tender Plus'}
                 </h2>
                 <p className="text-gray-600 text-sm">
                   {mode === 'login' 
