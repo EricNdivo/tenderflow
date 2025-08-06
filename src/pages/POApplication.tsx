@@ -11,7 +11,7 @@ const POApplication = () => {
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
+        {}
         <div className="mb-8">
           <nav className="text-sm breadcrumbs mb-4">
             <Link to="/dashboard" className="text-blue-600 hover:text-blue-500">
@@ -35,7 +35,7 @@ const POApplication = () => {
               </p>
             </div>
 
-            {/* Financing Options Selection */}
+            {}
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Select Your Financing Option *</h3>
               <div className="grid md:grid-cols-3 gap-4">
@@ -132,13 +132,13 @@ const POApplication = () => {
           </div>
         </div>
 
-        {/* Main Form */}
+        {}
         <div className="bg-white shadow-2xl rounded-2xl border border-gray-100">
           <form className="space-y-8 p-8">
-            {/* Hidden field for selected financing option */}
+            {}
             <input type="hidden" name="financingType" value={selectedFinancing} />
             
-            {/* Company Information */}
+            {}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
@@ -202,7 +202,7 @@ const POApplication = () => {
               </div>
             </div>
 
-            {/* PO Details */}
+            {}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
@@ -267,7 +267,7 @@ const POApplication = () => {
               </div>
             </div>
 
-            {/* Required Documents */}
+            {}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
@@ -354,7 +354,7 @@ const POApplication = () => {
               </div>
             </div>
 
-            {/* Terms and Conditions */}
+            {}
             <div className="bg-gray-50 rounded-xl p-6">
               <div className="flex items-start">
                 <input
@@ -374,7 +374,7 @@ const POApplication = () => {
               </div>
             </div>
 
-            {/* Submit Actions */}
+            {}
             <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
               <button
                 type="submit"

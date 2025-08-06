@@ -32,7 +32,7 @@ const NotFound = () => {
         </div>
 
         <div className="space-y-6">
-          {/* Primary Navigation */}
+          {}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/"
@@ -63,11 +63,11 @@ const NotFound = () => {
             </Link>
           </div>
 
-          {/* Financing Options */}
+          {}
           <div className="mt-8">
             <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">Or explore our financing solutions:</h3>
             <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-              {/* Tender Financing Application */}
+              {}
               <Link
                 to="/tender-application"
                 className="block p-6 bg-white border border-gray-200 rounded-lg hover:border-indigo-300 hover:shadow-md transition-all duration-200 group"
@@ -103,7 +103,7 @@ const NotFound = () => {
                 </div>
               </Link>
 
-              {/* Independent SME Support */}
+              {}
               <div className="p-6 bg-white border border-gray-200 rounded-lg">
                 <div className="flex items-start">
                   <div className="bg-green-100 p-3 rounded-lg mr-4">

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { X, Eye, EyeOff, Zap, Mail, Lock, User, Building, Phone } from 'lucide-react'
+import { X, Eye, EyeOff, Zap, Mail, Lock, User, Building, Phone, AlertCircle, CheckCircle } from 'lucide-react'
+import { useAuthContext } from '../../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 interface AuthModalProps {
   isOpen: boolean
@@ -9,11 +11,17 @@ interface AuthModalProps {
 }
 
 const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalProps) => {
+  const navigate = useNavigate()
+  const { signUp, signIn } = useAuthContext()
+  
   const [mode, setMode] = useState<'login' | 'signup'>(initialMode)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const [shouldRender, setShouldRender] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -27,6 +35,28 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalProps) =
   useEffect(() => {
     setMode(initialMode)
   }, [initialMode])
+
+  // Reset form when modal opens/closes or mode changes
+  useEffect(() => {
+    if (isOpen) {
+      resetForm()
+    }
+  }, [isOpen, mode])
+
+  const resetForm = () => {
+    setFormData({
+      email: '',
+      password: '',
+      confirmPassword: '',
+      firstName: '',
+      lastName: '',
+      company: '',
+      phone: ''
+    })
+    setError(null)
+    setSuccess(null)
+    setIsLoading(false)
+  }
 
   // Handle modal open/close animations
   useEffect(() => {
@@ -58,15 +88,91 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalProps) =
     }
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    handleClose()
+    setIsLoading(true)
+    setError(null)
+    setSuccess(null)
+
+    try {
+      if (mode === 'signup') {
+        // Validate passwords match
+        if (formData.password !== formData.confirmPassword) {
+          setError('Passwords do not match')
+          setIsLoading(false)
+          return
+        }
+
+        // Validate required fields
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
+          setError('Please fill in all required fields')
+          setIsLoading(false)
+          return
+        }
+
+        console.log('Attempting signup with:', { email: formData.email, firstName: formData.firstName })
+        
+        const result = await signUp({
+          email: formData.email,
+          password: formData.password,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          companyName: formData.company,
+          phone: formData.phone
+        })
+
+        console.log('Signup result:', result)
+
+        if (result.success) {
+          setSuccess(result.message)
+          // Close modal after a short delay to show success message
+          setTimeout(() => {
+            handleClose()
+            navigate('/dashboard')
+          }, 2000)
+        } else {
+          setError(result.message || 'Registration failed. Please try again.')
+        }
+      } else {
+        // Login mode
+        if (!formData.email || !formData.password) {
+          setError('Please enter your email and password')
+          setIsLoading(false)
+          return
+        }
+
+        console.log('Attempting login with:', { email: formData.email })
+
+        const result = await signIn({
+          email: formData.email,
+          password: formData.password
+        })
+
+        console.log('Login result:', result)
+
+        if (result.success) {
+          setSuccess(result.message)
+          // Close modal after a short delay to show success message
+          setTimeout(() => {
+            handleClose()
+            navigate('/dashboard')
+          }, 1500)
+        } else {
+          setError(result.message || 'Login failed. Please check your credentials.')
+        }
+      }
+    } catch (err) {
+      console.error('Auth error:', err)
+      const errorMessage = err instanceof Error ? err.message : 'An unexpected error occurred. Please try again.'
+      setError(errorMessage)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleClose = () => {
     setIsAnimating(false)
+    resetForm()
     setTimeout(() => onClose(), 500) // Wait for animation to complete
   }
 
@@ -272,11 +378,43 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalProps) =
                   </div>
                 )}
 
+                {/* Error Message */}
+                {error && (
+                  <div className="p-4 bg-red-100 border border-red-200 rounded-md">
+                    <div className="flex">
+                      <AlertCircle className="h-5 w-5 text-red-400 mt-0.5" />
+                      <div className="ml-3">
+                        <p className="text-sm text-red-700">{error}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Success Message */}
+                {success && (
+                  <div className="p-4 bg-green-100 border border-green-200 rounded-md">
+                    <div className="flex">
+                      <CheckCircle className="h-5 w-5 text-green-400 mt-0.5" />
+                      <div className="ml-3">
+                        <p className="text-sm text-green-700">{success}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 px-4 rounded-lg hover:from-emerald-500 hover:to-teal-500 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 font-medium shadow-lg hover:shadow-emerald-500/25 transform hover:-translate-y-0.5"
+                  disabled={isLoading}
+                  className={`w-full py-3 px-4 rounded-lg font-medium shadow-lg transform transition-all duration-300 ${
+                    isLoading 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-500 hover:to-teal-500 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 hover:shadow-emerald-500/25 hover:-translate-y-0.5'
+                  }`}
                 >
-                  {mode === 'login' ? 'Sign In' : 'Create Account'}
+                  {isLoading 
+                    ? (mode === 'login' ? 'Signing In...' : 'Creating Account...') 
+                    : (mode === 'login' ? 'Sign In' : 'Create Account')
+                  }
                 </button>
               </form>
 
@@ -288,7 +426,10 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }: AuthModalProps) =
                   {mode === 'login' ? "Don't have an account? " : "Already have an account? "}
                   <button
                     type="button"
-                    onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
+                    onClick={() => {
+                      setMode(mode === 'login' ? 'signup' : 'login')
+                      resetForm()
+                    }}
                     className="text-emerald-600 hover:text-emerald-500 font-medium transition-colors duration-200 hover:underline"
                   >
                     {mode === 'login' ? 'Sign up' : 'Sign in'}

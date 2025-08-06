@@ -122,35 +122,43 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* Auth Buttons and Dashboard */}
-          <div className="flex items-center space-x-4">
-            {/* Special Dashboard Button */}
+          {/* Enhanced Auth Buttons and Dashboard */}
+          <div className="flex items-center space-x-3">
+            {/* Enhanced Dashboard Button */}
             <Link
               to="/dashboard"
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 font-medium shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-0.5 flex items-center space-x-2 group"
+              className="relative group bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-xl hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 transition-all duration-300 font-semibold shadow-xl hover:shadow-2xl hover:shadow-blue-500/30 transform hover:-translate-y-1 hover:scale-105 flex items-center space-x-2 overflow-hidden"
             >
-              <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <svg className="w-5 h-5 group-hover:scale-110 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2 2z" />
               </svg>
-              <span>Dashboard</span>
+              <span className="relative z-10">Dashboard</span>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse group-hover:scale-110 transition-transform"></div>
             </Link>
 
+            {/* Enhanced Join Us Button */}
             <button
-              onClick={openLoginModal}
-              className="text-slate-700 hover:text-emerald-600 transition-all duration-300 font-medium relative group"
+              onClick={openSignupModal}
+              className="relative group text-slate-700 hover:text-emerald-600 transition-all duration-300 font-semibold px-4 py-2.5 rounded-xl hover:bg-emerald-50 border-2 border-transparent hover:border-emerald-200 transform hover:-translate-y-0.5 flex items-center space-x-2"
             >
-              Login
+              <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+              </svg>
+              <span>Join Us</span>
               <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </button>
             
+            {/* Enhanced Login Button - Now Last */}
             <button
-              onClick={openSignupModal}
-              className="relative group bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-2.5 rounded-lg hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 font-medium shadow-lg hover:shadow-emerald-500/25 transform hover:-translate-y-0.5 flex items-center space-x-2"
+              onClick={openLoginModal}
+              className="relative group text-slate-700 hover:text-blue-600 transition-all duration-300 font-semibold px-4 py-2.5 rounded-xl hover:bg-blue-50 border-2 border-transparent hover:border-blue-200 transform hover:-translate-y-0.5 flex items-center space-x-2"
             >
-              <span>Get Started</span>
-              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
               </svg>
+              <span>Login</span>
+              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </button>
           </div>
 
